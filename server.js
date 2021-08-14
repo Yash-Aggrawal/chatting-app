@@ -1,8 +1,22 @@
-const io = require('socket.io')(8000, {
-    cors: {
-        origin: '*',
-    }
-});
+// const PORT = process.env.PORT || 8000;
+
+// const io = require('socket.io')(PORT, {
+//     cors: {
+//         origin: '*',
+//     }
+// });
+
+const path = require('path');
+const http = require('http');
+const express = require('express');
+const socketio = require('socket.io');
+
+const app = express();
+const server = http.createServer(app);
+const io = socketio(server);
+
+// Set static folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 const users = {};
 
@@ -27,3 +41,7 @@ io.on('connection', socket => {
         delete users[socket.id];
     })
 })
+
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
