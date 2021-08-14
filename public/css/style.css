@@ -70,11 +70,11 @@ h1 {
     border: 3px solid black;
     height: 25px;
     border-radius: 10px;
-    width: 80%;
+    width: 50%;
 }
 
 .btn {
-    width: 9%;
+    width: 15%;
     cursor: pointer;
     border: 2px solid black;
     border-radius: 6px;

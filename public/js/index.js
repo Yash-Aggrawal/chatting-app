@@ -25,20 +25,23 @@ socket.emit('new-user-joined', named);
 
 
 socket.on('user-joined', name => {
-    if (name === null || name === undefined) {
+    name.trim();
+    if (!name) {
         name = 'Unnamed Person'
     }
     append(`${name} joined the chat`, 'right');
 })
 
 socket.on('receive', data => {
-    if (data.name === null || data.name === undefined) {
+    data.name.trim();
+    if (!data.name) {
         data.name = 'Unnamed Person'
     }
     append(`${data.name}: ${data.message}`, 'left')
 })
 socket.on('left', data => {
-    if (data === null && data === undefined) {
+    data.trim();
+    if (!data) {
         data = 'Unnamed Person'
 
     }
