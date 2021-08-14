@@ -6,9 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatsApp</title>
+    <script defer src="http://localhost:8000/socket.io/socket.io.js"></script>
+    <script defer src="/index.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="shortcut icon" href="/logo.png" type="image/x-icon">
+
+    <!-- //defer-script run after DOM -->
 </head>
 
 <body>
+    <nav>
+        <img src="/logo.png" alt="logo-img" class="logo">
+    </nav>
+    <h1>Welcome to ChatsApp</h1>
+    <div class="container">
+        <!-- <div class="message right">Yash:hru?</div>
+        <div class="message left">Mudit:Fine</div> -->
+
+    </div>
+    <div class="send">
+        <form action="" id="send-container">
+            <input type="text" name="message" id="message" placeholder="Type your message">
+            <button type="submit" class="btn">Send</button>
+        </form>
+    </div>
+
 
 </body>
 
