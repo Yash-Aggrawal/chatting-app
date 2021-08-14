@@ -21,18 +21,25 @@ const append = (message, position) => {
 }
 
 const named = prompt("Enter your name to join");
+while (named === null || named === undefined || named.length() === 0) {
+    named = prompt("Enter your name to join");
+}
 socket.emit('new-user-joined', named);
 
 
 socket.on('user-joined', name => {
-    append(`${name} joined the chat`, 'right');
+    if (name !== null && name !== undefined) {
+        append(`${name} joined the chat`, 'right');
+    }
 })
 
 socket.on('receive', data => {
     append(`${data.name}: ${data.message}`, 'left')
 })
 socket.on('left', data => {
-    append(`${data} left the chat`, 'left')
+    if (data !== null && data !== undefined) {
+        append(`${data} left the chat`, 'left')
+    }
 })
 
 form.addEventListener('submit', (e) => {
